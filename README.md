@@ -117,7 +117,7 @@ The figures in this README are extracted from the exported HTML rather than prod
 
 ## Notes on the conversion from `.ipynb`
 
-The original `Acrobot_A2C.ipynb`, `DQN.ipynb` and `PPO_v2.ipynb` are left in place. The algorithms, hyperparameters and almost all of the prose are unchanged (a couple of sentences were added to explain the points below). What differs, because marimo is a reactive Python file rather than a stateful kernel:
+The original `Acrobot_A2C.ipynb`, `DQN.ipynb` and `PPO_v2.ipynb` were removed once converted; they remain in the git history (commit `047cf7b`). The algorithms, hyperparameters and almost all of the prose are unchanged (a couple of sentences were added to explain the points below). What differs, because marimo is a reactive Python file rather than a stateful kernel:
 
 - **One definition per name.** marimo forbids defining the same global in two cells. `DQN` reassigned `epsilon` in its training loop and reused `total_reward` in two cells, so the loop now lives in a `train()` function that also returns the per-episode rewards and $\epsilon$ values. `marimo convert` resolves this kind of clash by silently renaming one copy (here it produced `epsilon_1`), which would have left $\epsilon$ stuck at 1.0 and the "DQN" acting randomly, so it was not used as-is.
 - **Execution order is explicit.** marimo orders cells by data dependencies, and in-place mutation (training an `actor` in a loop) is invisible to it. Downstream cells therefore reference the training cell's outputs (`episode`, `score`, `episode_rewards`), and `DQN`'s seeding now happens in the same cell as the environment so it precedes every network and buffer.
@@ -129,7 +129,6 @@ The original `Acrobot_A2C.ipynb`, `DQN.ipynb` and `PPO_v2.ipynb` are left in pla
 
 ```
 Acrobot_A2C.py  DQN.py  PPO_v2.py   marimo notebooks
-*.ipynb                             the original Jupyter notebooks
 assets/                             image used by DQN.py
 docs/                               GitHub Pages root: exported HTML, index.html, img/
 scripts/                            figure extraction and the PPO clipping illustration
