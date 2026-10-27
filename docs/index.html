@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ARF-3 Algorithms</title>
+<style>
+  :root { --bg: #fafaf8; --fg: #1c1c1a; --muted: #5f5f5a; --card: #ffffff; --line: #deded8; --accent: #0b6e4f; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #151514; --fg: #ecece8; --muted: #a3a39c; --card: #1e1e1c; --line: #333330; --accent: #5fd0a6; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: 1.8rem; margin: 0 0 8px; }
+  p.lede { color: var(--muted); margin: 0 0 32px; }
+  a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line);
+           border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+  a.card:hover { border-color: var(--accent); }
+  a.card h2 { margin: 0 0 4px; font-size: 1.1rem; color: var(--accent); }
+  a.card span { color: var(--muted); font-size: 0.92rem; }
+  footer { margin-top: 32px; color: var(--muted); font-size: 0.9rem; }
+  footer a { color: var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>ARF-3 Algorithms</h1>
+  <p class="lede">Reinforcement-learning notebooks written with <a href="https://marimo.io" style="color:var(--accent)">marimo</a>, exported as static HTML with the outputs of a full training run.</p>
+
+  <a class="card" href="Acrobot_A2C.html">
+    <h2>Acrobot with A2C</h2>
+    <span>Advantage actor-critic on <code>Acrobot-v1</code> (discrete actions, one transition per update).</span>
+  </a>
+  <a class="card" href="DQN.html">
+    <h2>Cart-Pole with a Deep Q-Network</h2>
+    <span>Replay buffer, target network and &epsilon;-greedy exploration on <code>CartPole-v1</code>.</span>
+  </a>
+  <a class="card" href="PPO_v2.html">
+    <h2>Pendulum with PPO</h2>
+    <span>Clipped-objective policy optimisation with GAE on <code>Pendulum-v1</code> (continuous actions).</span>
+  </a>
+
+  <footer>Source, maths summaries and instructions for running the notebooks: <a href="https://github.com/TrueCP6/ARF-3-Algorithms">github.com/TrueCP6/ARF-3-Algorithms</a></footer>
+</main>
+</body>
+</html>
