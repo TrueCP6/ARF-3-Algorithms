@@ -1,0 +1,7 @@
+# Versions the notebooks were last run and exported with
+marimo>=0.25.2
+torch>=2.14.1
+gymnasium[classic-control]>=1.4.0
+matplotlib>=3.11.2
+numpy>=2.5.4
+pillow>=13.0.0
